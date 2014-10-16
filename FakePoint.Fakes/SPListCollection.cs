@@ -33,21 +33,14 @@ namespace Microsoft.SharePoint
         internal SPListCollection(XmlNode node)
         {
             this.node = node;
-            this.lists = node.SelectNodes("Lists");
+            this.lists = node.SelectNodes("List");
         }
 
-        public SPListItem GetItemById(int id)
+        public SPList TryGetList(string listTitle)
         {
-            foreach (XmlNode item in node.SelectNodes("List"))
-                if (id == int.Parse(((XmlElement)item).GetAttribute("ID"))) return new SPListItem(item);
-            return null;
-        }
-
-        public SPListItem GetItemByUniqueId(Guid uniqueId)
-        {
-            foreach (XmlNode item in node.SelectNodes("List"))
-                if (uniqueId.ToString() == ((XmlElement)item).GetAttribute("ID")) return new SPListItem(item);
-            return null;
+            XmlNode list = node.SelectSingleNode("List[@Title='" + listTitle + "']");
+            if (list == null) return null;
+            return new SPList(list);
         }
 
         IEnumerator<SPList> IEnumerable<SPList>.GetEnumerator()

@@ -12,14 +12,15 @@ namespace Microsoft.SharePoint
   {
     public XmlNode node = null;
     public SPListItemCollection Items = null;
-    public DateTime LastItemModifiedDate { get { return DateTime.Parse(((XmlElement)node).GetAttribute("LastItemModifiedDate")); } }
+    public Guid ID { get { return Guid.Parse(((XmlElement)node).GetAttribute("ID")); } }
+    public string Title { get { return ((XmlElement)node).GetAttribute("Title"); } }
     public SPFieldCollection Fields = null;
 
     public SPList(XmlNode node)
     {
       this.node = node;
-      Items = new SPListItemCollection(node.SelectSingleNode("*/Rows"));
-      Fields = new SPFieldCollection(node.SelectSingleNode("*/Fields"));
+      Items = new SPListItemCollection(node.SelectSingleNode("Rows")); // TODO: No items in XML
+      Fields = new SPFieldCollection(node.SelectSingleNode("Fields"));
     }
 
     public int ItemCount
@@ -53,6 +54,5 @@ namespace Microsoft.SharePoint
     public void Delete()
     {
     }
-
   }
 }

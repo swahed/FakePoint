@@ -13,6 +13,7 @@ namespace Microsoft.SharePoint
         public XmlNode node = null;
         public SPListCollection Lists = null;
         public SPFileCollection Files = null;
+        public Guid ID { get { return Guid.Parse(((XmlElement)node).GetAttribute("ID")); } }
         public string Url { get { return ((XmlElement)node).GetAttribute("Url"); } }
         public bool AllowUnsafeUpdates { get; set; }
         public SPFolderCollection Folders
@@ -30,9 +31,11 @@ namespace Microsoft.SharePoint
             if (node != null)
             {
                 XmlNode xUserLists = node.SelectSingleNode("UserLists");
-                if (xUserLists != null) Lists = new SPListCollection(xUserLists);
+                if (xUserLists != null) 
+                    Lists = new SPListCollection(xUserLists);
                 XmlNode xFiles = node.SelectSingleNode("Files");
-                if (xFiles != null) Files = new SPFileCollection(xFiles);
+                if (xFiles != null) 
+                    Files = new SPFileCollection(xFiles);
             }
             AllowUnsafeUpdates = true;
         }
@@ -52,7 +55,5 @@ namespace Microsoft.SharePoint
             if (this == SPContext.Current.Web)
                 throw new Exception("Shouldn't dispose this object - it is managed by the SharePoint framework");
         }
-
-        public Guid ID { get { return Guid.Parse(((XmlElement)node).GetAttribute("ID")); } }
     }
 }

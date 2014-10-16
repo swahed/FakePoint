@@ -15,13 +15,17 @@ namespace Microsoft.SharePoint
         public int Count { get { return items.Count; } }
         public SPListItem this[int i]
         {
-            get { return new SPListItem(items[i]); }
+            get 
+            { 
+                return new SPListItem(items[i]); 
+            }
         }
 
         public SPListItemCollection(XmlNode node)
         {
             this.node = node;
-            items = node.SelectNodes("Row");
+            items = node == null ? // TODO: Workaround while xml does not contain items. To be removed
+                null : node.SelectNodes("Row");
         }
 
         public SPListItem Add()

@@ -56,10 +56,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FakePoint.Fakes\FakePoint.Fakes.csproj">
-      <Project>{40d5cc14-f9c2-4aaa-8f91-ee711359aef2}</Project>
-      <Name>FakePoint.Fakes</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FakePoint.SPExplorer\FakePoint.SPExplorer.csproj">
       <Project>{27e742d4-7a13-4deb-b72f-19bd253182ed}</Project>
       <Name>FakePoint.SPExplorer</Name>
