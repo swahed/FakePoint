@@ -14,7 +14,7 @@ namespace Microsoft.SharePoint
 
         public int ID
         {
-            get { return int.Parse(node.SelectSingleNode("Field[@Name='ID']").InnerText); }
+            get { return int.Parse(node.SelectSingleNode("Fields/Field[@Name='ID']").InnerText); }
         }
 
         public object this[string fieldName]
@@ -43,7 +43,7 @@ namespace Microsoft.SharePoint
 
         public SPFieldCollection Fields
         {
-            get { return new SPFieldCollection(node.SelectSingleNode("../../../MetaData/Fields")); }
+            get { return new SPFieldCollection(node.SelectSingleNode("Fields")); }
         }
 
         public SPItem(XmlNode node)

@@ -19,7 +19,7 @@ namespace Microsoft.SharePoint
     public SPList(XmlNode node)
     {
       this.node = node;
-      Items = new SPListItemCollection(node.SelectSingleNode("Rows")); // TODO: No items in XML
+      Items = new SPListItemCollection(node.SelectSingleNode("Data/Rows"));
       Fields = new SPFieldCollection(node.SelectSingleNode("Fields"));
     }
 
@@ -36,7 +36,7 @@ namespace Microsoft.SharePoint
     public SPListItem GetItemById(int id)
     {
       foreach (XmlNode item in node.SelectNodes("Data/Rows/Row"))
-        if (id == int.Parse(item.SelectSingleNode("Field[@Name='ID']").InnerText)) return new SPListItem(item);
+        if (id == int.Parse(item.SelectSingleNode("Fields/Field[@Name='ID']").InnerText)) return new SPListItem(item);
       return null;
     }
 

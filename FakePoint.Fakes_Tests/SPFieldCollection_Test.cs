@@ -23,5 +23,7 @@ namespace FakePoint.Fakes_Tests
         {
             Assert.AreEqual(fields.Count, 71);
         }
+
+        // TODO: [] int, Guid, string
     }
 }

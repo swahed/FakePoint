@@ -43,16 +43,51 @@ namespace FakePoint.Fakes_Tests
             Assert.IsNotNull(list.Fields);
         }
 
-        // GetItems returns not null
+        [TestMethod]
+        public void ItemsReturnsNotNull()
+        {
+            SPListItemCollection items = list.Items;
+            Assert.IsNotNull(items);
+        }
+
+        [TestMethod]
+        public void GetItemsReturnsNotNull()
+        {
+            SPListItemCollection items = list.Items;
+            items = list.GetItems(new SPQuery());
+            Assert.IsNotNull(items);
+        }
 
         // GetItems returns correct number of items -> SPListItemsCollection
+        [TestMethod]
+        public void GetItemsRetrunsCorrectNumberOfitems()
+        {
+            SPListItemCollection items = list.Items;
+            items = list.GetItems(new SPQuery());
+            Assert.AreEqual(items.Count, 1);
+        }
 
-        // GetItemById returns correct item
-
-        // GetItemByUniqueId returns correct item
+        [TestMethod]
+        public void GetItemByIdReturnsCorrectItem()
+        {
+            SPItem item = list.GetItemById(11); 
+            Assert.AreEqual(item.ID, 11);
+        }
 
         // Update() does nothing?
+        //[TestMethod]
+        //public void UpdateUpdates()
+        //{
+        //    list.Update();
+        //    Assert.Fail();
+        //}
 
         // Deletes() deletes // TODO: Doesn't thsi need allowunsafeupdates ans web.Update() ?
+        //[TestMethod]
+        //public void DeleteDeletes()
+        //{
+        //    list.Delete();
+        //    Assert.IsNull(list);
+        //}
     }
 }
