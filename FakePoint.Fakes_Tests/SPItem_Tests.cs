@@ -7,7 +7,6 @@ namespace FakePoint.Fakes_Tests
     [TestClass]
     public class SPItem_Tests
     {
-        string testFileName = "TestSiteCaml";
         int testListId = 11;
 
         SPList list;
@@ -16,7 +15,6 @@ namespace FakePoint.Fakes_Tests
         [TestInitialize]
         public void Init()
         {
-            SPContext.Initialize(testFileName);
             list = SPContext.Current.Web.Lists[testListId];
             item = list.GetItemById(11);
         }

@@ -7,7 +7,6 @@ namespace FakePoint.Fakes_Tests
     [TestClass]
     public class SPSite_Test
     {
-        string testFileName = "TestSiteCaml";
         Guid testSiteId = new Guid("{BC0D7FEA-75BA-4015-8B88-A7331AF06418}");
         Guid testRootWebId = new Guid("{23A258FF-CEB6-4ABD-9069-0EDD1991D5FD}");
         Guid testSubWebId = new Guid("{D5A29DC2-2C8B-4FF6-AC32-5E891D373B1C}");
@@ -18,7 +17,6 @@ namespace FakePoint.Fakes_Tests
         [TestInitialize]
         public void Init()
         {
-            SPContext.Initialize(testFileName);
         }
 
         [TestMethod]

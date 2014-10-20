@@ -30,7 +30,7 @@ namespace Microsoft.SharePoint
 
         public SPListItem Add()
         {
-            XmlNode item = SPContext.content.CreateElement("Row");
+            XmlNode item = SPContext.Current.Content.CreateElement("Row");
             node.AppendChild(item);
             items = node.SelectNodes("List");
             return new SPListItem(item);

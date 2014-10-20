@@ -8,13 +8,7 @@ namespace FakePoint.Fakes_Tests
     [TestClass]
     public class SPContext_Test
     {
-        string testFileName = "TestSiteCaml";
-
-        [TestInitialize]
-        public void Init() 
-        {
-            SPContext.Initialize(testFileName);
-        }
+        // TODO: Test:             SPContext.Initialize(testFileName);
 
         [TestMethod]
         public void CurrentIsNotNull()

@@ -32,7 +32,7 @@ namespace Microsoft.SharePoint
             // TODO: Also, correct site needs to be opened if the url of a subweb was entered
 
             // Current Workaround
-            node = SPContext.content.SelectSingleNode("//Site");
+            node = SPContext.Current.Content.SelectSingleNode("//Site");
             _requestUrl = requestUrl;
         }
 
@@ -40,7 +40,7 @@ namespace Microsoft.SharePoint
         {
             // TODO: Filter on Id not working correctly
             //node = SPContext.content.SelectSingleNode("//Site[@ID=" + guid.ToString() + "]");
-            node = SPContext.content.SelectSingleNode("//Site");
+            node = SPContext.Current.Content.SelectSingleNode("//Site");
         }
 
         public SPWeb OpenWeb()

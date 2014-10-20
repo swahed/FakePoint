@@ -7,14 +7,11 @@ namespace FakePoint.Fakes_Tests
     [TestClass]
     public class SPListCollection_Test
     {
-        string testFileName = "TestSiteCaml";
-
         SPListCollection collection;
 
         [TestInitialize]
         public void Init()
         {
-            SPContext.Initialize(testFileName);
             collection = SPContext.Current.Web.Lists;
         }
 
