@@ -40,12 +40,11 @@ namespace Microsoft.SharePoint
             foreach(XmlNode sitenode in sitenodes)
             {
                 var siteUrl = (sitenode.Attributes["Url"]).Value;
-                if (requestUrl.StartsWith(siteUrl)) // Issue: can be called with Url from content
+                if (requestUrl.StartsWith(siteUrl))
                         result = sitenode;          // Issue: it mus be checked if this is a better match, then the previous one
             }
 
-            // Current Workaround
-            node = SPContext.Current.Content.SelectSingleNode("//Site");
+            node = result;
         }
 
         public SPSite(Guid guid)
