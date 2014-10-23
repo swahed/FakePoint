@@ -26,14 +26,26 @@ namespace Microsoft.SharePoint
 
         public SPSite(string requestUrl)
         {
+            _requestUrl = requestUrl;
+
             // TODO: Should remove trailing slashes
             // TODO: Filter on Url not working correctly
             // node = SPContext.content.SelectSingleNode("//Site[@Url=" + requestUrl + "]");
             // TODO: Also, correct site needs to be opened if the url of a subweb was entered
 
+            var xml = SPContext.Current.Content;
+            var sitenodes = xml.SelectNodes("//Site");
+            
+            XmlNode result = null;
+            foreach(XmlNode sitenode in sitenodes)
+            {
+                var siteUrl = (sitenode.Attributes["Url"]).Value;
+                if (requestUrl.StartsWith(siteUrl)) // Issue: can be called with Url from content
+                        result = sitenode;          // Issue: it mus be checked if this is a better match, then the previous one
+            }
+
             // Current Workaround
             node = SPContext.Current.Content.SelectSingleNode("//Site");
-            _requestUrl = requestUrl;
         }
 
         public SPSite(Guid guid)

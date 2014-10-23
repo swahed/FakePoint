@@ -36,12 +36,7 @@ namespace Microsoft.SharePoint
         public static void Initialize(string name)
         {
             _current = new SPContext();
-            string path = System.Reflection.Assembly.GetCallingAssembly().CodeBase.Replace("file:///", "");
-            if (path.Contains("TestResults")) path = path.Substring(0, path.IndexOf("TestResults"));
-            path = Path.GetDirectoryName(path).Replace("\\bin\\Debug", "");
-            var method = new StackTrace().GetFrame(1).GetMethod();
-            string fileName = path + "\\" + name;
-            var fs = new FileStream(fileName + ".manifest.xml", FileMode.OpenOrCreate);
+            var fs = new FileStream(name + ".manifest.xml", FileMode.Open);
             var sr = new StreamReader(fs);
             if (sr.BaseStream.Length > 0)
             {

@@ -62,13 +62,12 @@ namespace FakePoint.Fakes_Tests
         [TestMethod]
         public void DisposeInUsingBlock()
         {
-            using (SPSite site = new SPSite(SPContext.Current.Site.ID))
+            string ID = null;
+            using (var web = Site.OpenWeb(testSubWebUrl))
             {
-                using (SPWeb web = site.OpenWeb(testSubWebUrl))
-                {
-                    // TODO
-                }
+                ID = web.ID.ToString("B").ToUpper();
             }
+            Assert.AreEqual(ID, testSubWebId.ToString("B").ToUpper());
         }
 
         // TODO:

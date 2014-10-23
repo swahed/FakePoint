@@ -24,6 +24,8 @@ namespace FakePoint.Fakes_Tests
         {
             SPSite site = new SPSite(testSiteUrl);
             Assert.AreEqual(site.ID, testSiteId);
+            site = new SPSite(testSiteId);
+            Assert.AreEqual(site.ID, testSiteId);
         }
 
         // TODO: Test with relative urls (if supported by SharePoint)
@@ -32,6 +34,10 @@ namespace FakePoint.Fakes_Tests
         public void SiteHasCorrectUrl()
         {
             SPSite site = new SPSite(testSiteId);
+            Assert.AreEqual(site.Url, testSiteUrl);
+            site = new SPSite(testSiteUrl);
+            Assert.AreEqual(site.Url, testSiteUrl);
+            site = new SPSite(testSubWebUrl);
             Assert.AreEqual(site.Url, testSiteUrl);
         }
 
@@ -56,11 +62,27 @@ namespace FakePoint.Fakes_Tests
         // TODO: Correct web needs to be opened if the url of an element within the web (i.e. list) has been entereds
 
         [TestMethod]
+        public void OpenWebOpenRootWebByUrl()
+        {
+            SPSite site = new SPSite(testSiteUrl);
+            SPWeb web = site.OpenWeb(testSiteUrl);
+            Assert.AreEqual(web.ID, testRootWebId);
+
+            SPSite site1 = new SPSite(testSubWebUrl);
+            SPWeb web1 = site1.OpenWeb(testSiteUrl);
+            Assert.AreEqual(web1.ID, testRootWebId);
+        }
+
+        [TestMethod]
         public void OpenWebOpensubWebByUrl()
         {
             SPSite site = new SPSite(testSubWebUrl);
             SPWeb web = site.OpenWeb(testSubWebUrl);
             Assert.AreEqual(web.ID, testSubWebId);
+
+            SPSite site1 = new SPSite(testSiteUrl);
+            SPWeb web1 = site1.OpenWeb(testSubWebUrl);
+            Assert.AreEqual(web1.ID, testSubWebId);
         }
 
         [TestMethod]
