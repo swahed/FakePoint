@@ -61,6 +61,7 @@ namespace FakePoint.Fakes_Tests
             Assert.AreEqual(site.Url, testSiteUrl);
             site = new SPSite(testSubWebUrl);
             Assert.AreEqual(site.Url, testSiteUrl);
+            // TODO: Resolvea site that is not the root site of the webapp by Url
         }
 
         // TODO: Correct site needs to be opened if the url of a subweb was entered
