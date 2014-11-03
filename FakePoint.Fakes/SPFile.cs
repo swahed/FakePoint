@@ -10,7 +10,7 @@ namespace Microsoft.SharePoint
 {
     public class SPFile
     {
-        public XmlNode node = null;
+        internal XmlNode node = null;
         public bool Exists { get { return node != null; } }
         public DateTime TimeLastModified { get { return DateTime.Parse(((XmlElement)node).GetAttribute("TimeLastModified")); } }
         public string Name { get { return ((XmlElement)node).GetAttribute("Name"); } }

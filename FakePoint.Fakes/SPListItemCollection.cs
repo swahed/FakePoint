@@ -10,8 +10,8 @@ namespace Microsoft.SharePoint
 {
     public class SPListItemCollection : IEnumerable<SPListItem>
     {
-        public XmlNodeList items = null; // more efficient to hang on to this node list?
-        public XmlNode node = null;
+        internal XmlNodeList items = null; // more efficient to hang on to this node list?
+        internal XmlNode node = null;
         public int Count { get { return items.Count; } }
         public SPListItem this[int i]
         {

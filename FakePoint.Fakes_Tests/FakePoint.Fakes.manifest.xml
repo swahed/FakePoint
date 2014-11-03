@@ -4,7 +4,7 @@
     <WebService ID="{4253C95D-0729-4F15-BE8A-0C9272CE0DC0}" DisplayName="" Name="">
       <WebApplications>
         <WebApplication ID="{B6293B0B-7D16-4169-9BE6-26ED1534BBF9}" DisplayName="WebApplication Name" Name="WebApplication Name">
-          <Sites>
+          <Sites>            
             <Site ID="{BC0D7FEA-75BA-4015-8B88-A7331AF06418}" DisplayName="SPSite Url=http://localhost/sites/teamsite" Name="SPSite Url=http://localhost/sites/teamsite" Url="http://localhost/sites/teamsite">
               <Web ID="{23A258FF-CEB6-4ABD-9069-0EDD1991D5FD}" Description="" Name="" Url="http://localhost/sites/teamsite">
                 <Webs>
@@ -21282,6 +21282,16 @@
                     <Forms />
                   </List>
                 </UserLists>
+              </Web>
+            </Site>
+            <Site ID="{819135FE-402E-44BB-A4BA-34E9C8495A53}" DisplayName="SPSite Url=http://localhost/sites/teamsite2" Name="SPSite Url=http://localhost/sites/teamsite2" Url="http://localhost/sites/teamsite2">
+              <!-- Empty mock test site -->
+              <Web ID="{B7F2C11F-E26D-49CA-AC58-332FB212C527}" Description="" Name="" Url="http://localhost/sites/teamsite2">
+                <Webs>
+                  <Web ID="{E5CAA219-1C20-4ED2-8096-848FD747DBF9}" Description="" Name="" Url="http://localhost/sites/teamsite/subsite2">
+                    <!-- Empty mock test subweb -->
+                  </Web>
+                </Webs>
               </Web>
             </Site>
           </Sites>

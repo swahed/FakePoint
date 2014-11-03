@@ -10,7 +10,7 @@ namespace Microsoft.SharePoint
 {
     public class SPWeb : IDisposable
     {
-        public XmlNode node = null;
+        internal XmlNode node = null;
         public SPListCollection Lists = null;
         public SPFileCollection Files = null;
         public Guid ID { get { return Guid.Parse(((XmlElement)node).GetAttribute("ID")); } }

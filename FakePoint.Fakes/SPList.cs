@@ -10,7 +10,7 @@ namespace Microsoft.SharePoint
 {
   public class SPList
   {
-    public XmlNode node = null;
+    internal XmlNode node = null;
     public SPListItemCollection Items = null;
     public Guid ID { get { return Guid.Parse(((XmlElement)node).GetAttribute("ID")); } }
     public string Title { get { return ((XmlElement)node).GetAttribute("Title"); } }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.SharePoint;
+using System.Threading.Tasks;
 
 namespace FakePoint.Fakes_Tests
 {
@@ -18,6 +19,27 @@ namespace FakePoint.Fakes_Tests
         public void Init()
         {
         }
+
+        // TODO:
+        //[TestMethod]
+        //public void GetSiteAsync()
+        //{ 
+        //    GeneralThreadAffineContext.Run(() => this.Invoke(testSiteUrl));
+        //}
+
+        //public async Task<object> Invoke(object input)
+        //{
+        //    SPSite site = await Task.Run(() =>
+        //    {
+        //        return new SPSite(input.ToString());
+        //    });
+
+        //    return new
+        //    {
+        //        ID = site.ID.ToString("B").ToUpper(), // TODO: move Formatting to Javascript
+        //        Url = site.Url
+        //    };
+        //}
 
         [TestMethod]
         public void SiteHasCorrectId()

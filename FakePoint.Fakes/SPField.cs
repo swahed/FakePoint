@@ -10,7 +10,7 @@ namespace Microsoft.SharePoint
 {
     public class SPField
     {
-        public XmlNode node = null;
+        internal XmlNode node = null;
         public bool Exists { get { return node != null; } }
         public DateTime TimeLastModified { get { return DateTime.Parse(((XmlElement)node).GetAttribute("TimeLastModified")); } }
         public object Title { get { return ((XmlElement)node).GetAttribute("Name"); } }

@@ -10,7 +10,7 @@ namespace Microsoft.SharePoint
 {
     public class SPItem
     {
-        public XmlNode node = null;
+        internal XmlNode node = null;
 
         public int ID
         {

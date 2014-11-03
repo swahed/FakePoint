@@ -13,7 +13,7 @@ namespace Microsoft.SharePoint
     {
         private string _requestUrl;
 
-        public XmlNode node = null;
+        internal XmlNode node = null;
         public string Url { get { return ((XmlElement)node).GetAttribute("Url"); } }
         public Guid ID { get { return Guid.Parse(((XmlElement)node).GetAttribute("ID")); } }
         public SPWeb RootWeb { get { return new SPWeb(node.SelectSingleNode("//Web")); } }
@@ -26,33 +26,22 @@ namespace Microsoft.SharePoint
 
         public SPSite(string requestUrl)
         {
-            _requestUrl = requestUrl;
+            _requestUrl = requestUrl.TrimEnd('/');
 
-            // TODO: Should remove trailing slashes
-            // TODO: Filter on Url not working correctly
-            // node = SPContext.content.SelectSingleNode("//Site[@Url=" + requestUrl + "]");
-            // TODO: Also, correct site needs to be opened if the url of a subweb was entered
+            if (string.IsNullOrEmpty(_requestUrl))
+                throw new ArgumentException("Request Url must not be empty");
 
-            var xml = SPContext.Current.Content;
-            var sitenodes = xml.SelectNodes("//Site");
-            
-            XmlNode result = null;
-            foreach(XmlNode sitenode in sitenodes)
-            {
-                var siteUrl = (sitenode.Attributes["Url"]).Value;
-                if (requestUrl.StartsWith(siteUrl)) // Issue: can be called with Url from content
-                        result = sitenode;          // Issue: it mus be checked if this is a better match, then the previous one
-            }
+            // TODO: This will not work if there is a rootweb in the site collection (Possibly make it a hard coded exception)
+            node = SPContext.Current.Content.SelectSingleNode("//Site[starts-with('" + _requestUrl + "', @Url)]");
 
-            // Current Workaround
-            node = SPContext.Current.Content.SelectSingleNode("//Site");
+            if (node == null)
+                throw new ArgumentException("No Website found for request Url " + requestUrl);
         }
 
         public SPSite(Guid guid)
         {
             // TODO: Filter on Id not working correctly
-            //node = SPContext.content.SelectSingleNode("//Site[@ID=" + guid.ToString() + "]");
-            node = SPContext.Current.Content.SelectSingleNode("//Site");
+            node = SPContext.Current.Content.SelectSingleNode("//Site[@ID='" + guid.ToString("B").ToUpper() + "']");
         }
 
         public SPWeb OpenWeb()
