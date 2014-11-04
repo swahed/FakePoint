@@ -25,7 +25,7 @@ namespace FakePoint.Fakes_Tests
         [TestMethod]
         public void CurrentSiteHasCorrectId()
         {
-            Assert.AreEqual(SPContext.Current.Site.ID, new Guid("{BC0D7FEA-75BA-4015-8B88-A7331AF06418}"));
+            Assert.AreEqual(new Guid("{BC0D7FEA-75BA-4015-8B88-A7331AF06418}"), SPContext.Current.Site.ID);
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace FakePoint.Fakes_Tests
         [TestMethod]
         public void CurrentWebHasCorrectId()
         {
-            Assert.AreEqual(SPContext.Current.Web.ID, new Guid("{23A258FF-CEB6-4ABD-9069-0EDD1991D5FD}"));
+            Assert.AreEqual(new Guid("{23A258FF-CEB6-4ABD-9069-0EDD1991D5FD}"), SPContext.Current.Web.ID);
         }        
     }
 }

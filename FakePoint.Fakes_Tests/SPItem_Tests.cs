@@ -22,7 +22,7 @@ namespace FakePoint.Fakes_Tests
         [TestMethod]
         public void ItemIdIsCorrect()
         {
-            Assert.AreEqual(item.ID, 11);
+            Assert.AreEqual(11, item.ID);
         }
 
         //TODO: [] name, index, guid

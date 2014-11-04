@@ -24,14 +24,14 @@ namespace FakePoint.Fakes_Tests
         public void WebHasCorrectId()
         {
             SPWeb web = Site.OpenWeb(testSubWebUrl);
-            Assert.AreEqual(web.ID, testSubWebId);
+            Assert.AreEqual(testSubWebId, web.ID);
         }
 
         [TestMethod]
         public void WebHasCorrectUrl()
         {
             SPWeb web = Site.OpenWeb(testSubWebId);
-            Assert.AreEqual(web.Url, testSubWebUrl);
+            Assert.AreEqual(testSubWebUrl, web.Url);
         }
 
         [TestMethod]
@@ -67,7 +67,7 @@ namespace FakePoint.Fakes_Tests
             {
                 ID = web.ID.ToString("B").ToUpper();
             }
-            Assert.AreEqual(ID, testSubWebId.ToString("B").ToUpper());
+            Assert.AreEqual(testSubWebId.ToString("B").ToUpper(), ID);
         }
 
         // TODO:

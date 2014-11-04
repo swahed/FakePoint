@@ -20,7 +20,7 @@ namespace FakePoint.Fakes_Tests
         [TestMethod]
         public void ItemsCountCorrect()
         {
-            Assert.AreEqual(items.Count, 1);
+            Assert.AreEqual(1, items.Count);
         }
     }
 }

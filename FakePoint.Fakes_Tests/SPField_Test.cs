@@ -36,14 +36,14 @@ namespace FakePoint.Fakes_Tests
         [TestMethod]
         public void TitleIsCorrect()
         {
-            Assert.AreEqual(field.Title, testFieldName);
+            Assert.AreEqual(testFieldName, field.Title);
         }
 
         //timeLastModified
         [TestMethod]
         public void TypeIsCorrect()
         {
-            Assert.AreEqual(field.Type, SPFieldType.Text);
+            Assert.AreEqual(SPFieldType.Text, field.Type);
         }
         //InternalName
     }

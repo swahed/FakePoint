@@ -18,28 +18,28 @@ namespace FakePoint.Fakes_Tests
         [TestMethod]
         public void ListCollectionCountIsCorrect()
         {
-            Assert.AreEqual(collection.Count, 19);
+            Assert.AreEqual(19, collection.Count);
         }
 
         [TestMethod]
         public void GetListByIdReturnsCorrectList()
         {
             SPList list = collection[11];
-            Assert.AreEqual(list.Title, "Site Pages");
+            Assert.AreEqual("Site Pages", list.Title);
         }
 
         [TestMethod]
         public void GetListByNameReturnsCorrectList()
         {
             SPList list = collection["Site Pages"];
-            Assert.AreEqual(list.ID, new Guid("{0A780E47-DD15-4C9C-A91A-3FDD1C815BB8}"));
+            Assert.AreEqual(new Guid("{0A780E47-DD15-4C9C-A91A-3FDD1C815BB8}"), list.ID);
         }
 
         [TestMethod]
         public void TryGetListReturnsCorrectList()
         {
             SPList list = collection.TryGetList("Site Pages");
-            Assert.AreEqual(list.ID, new Guid("{0A780E47-DD15-4C9C-A91A-3FDD1C815BB8}"));
+            Assert.AreEqual(new Guid("{0A780E47-DD15-4C9C-A91A-3FDD1C815BB8}"), list.ID);
         }
 
         [TestMethod]

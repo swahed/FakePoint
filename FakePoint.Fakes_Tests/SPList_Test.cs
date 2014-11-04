@@ -20,7 +20,7 @@ namespace FakePoint.Fakes_Tests
         [TestMethod]
         public void TitleIsCorrect()
         {
-            Assert.AreEqual(list.Title, "Site Pages");
+            Assert.AreEqual("Site Pages", list.Title);
         }
 
         [TestMethod]
@@ -32,7 +32,7 @@ namespace FakePoint.Fakes_Tests
         [TestMethod]
         public void ItemsCountCorrect()
         {
-            Assert.AreEqual(list.ItemCount, 1);
+            Assert.AreEqual(1, list.ItemCount);
         }
 
         [TestMethod]
@@ -62,14 +62,14 @@ namespace FakePoint.Fakes_Tests
         {
             SPListItemCollection items = list.Items;
             items = list.GetItems(new SPQuery());
-            Assert.AreEqual(items.Count, 1);
+            Assert.AreEqual(1, items.Count);
         }
 
         [TestMethod]
         public void GetItemByIdReturnsCorrectItem()
         {
             SPItem item = list.GetItemById(11); 
-            Assert.AreEqual(item.ID, 11);
+            Assert.AreEqual(11, item.ID);
         }
 
         // Update() does nothing?

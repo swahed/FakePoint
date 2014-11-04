@@ -21284,11 +21284,11 @@
                 </UserLists>
               </Web>
             </Site>
-            <Site ID="{819135FE-402E-44BB-A4BA-34E9C8495A53}" DisplayName="SPSite Url=http://localhost/sites/teamsite2" Name="SPSite Url=http://localhost/sites/teamsite2" Url="http://localhost/sites/teamsite2">
+            <Site ID="{819135FE-402E-44BB-A4BA-34E9C8495A53}" DisplayName="SPSite Url=http://localhost/sites/anotherteamsite" Name="SPSite Url=http://localhost/sites/anotherteamsite" Url="http://localhost/sites/anotherteamsite">
               <!-- Empty mock test site -->
-              <Web ID="{B7F2C11F-E26D-49CA-AC58-332FB212C527}" Description="" Name="" Url="http://localhost/sites/teamsite2">
+              <Web ID="{B7F2C11F-E26D-49CA-AC58-332FB212C527}" Description="" Name="" Url="http://localhost/sites/anotherteamsite">
                 <Webs>
-                  <Web ID="{E5CAA219-1C20-4ED2-8096-848FD747DBF9}" Description="" Name="" Url="http://localhost/sites/teamsite/subsite2">
+                  <Web ID="{E5CAA219-1C20-4ED2-8096-848FD747DBF9}" Description="" Name="" Url="http://localhost/sites/anotherteamsite/subsite2">
                     <!-- Empty mock test subweb -->
                   </Web>
                 </Webs>

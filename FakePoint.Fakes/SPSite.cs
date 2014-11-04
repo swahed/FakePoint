@@ -15,6 +15,7 @@ namespace Microsoft.SharePoint
 
         internal XmlNode node = null;
         public string Url { get { return ((XmlElement)node).GetAttribute("Url"); } }
+        public string Title { get { return ((XmlElement)node).GetAttribute("Name"); } }
         public Guid ID { get { return Guid.Parse(((XmlElement)node).GetAttribute("ID")); } }
         public SPWeb RootWeb { get { return new SPWeb(node.SelectSingleNode("//Web")); } }
         public bool AllowUnsafeUpdates { get; set; }
@@ -32,8 +33,9 @@ namespace Microsoft.SharePoint
                 throw new ArgumentException("Request Url must not be empty");
 
             // TODO: This will not work if there is a rootweb in the site collection (Possibly make it a hard coded exception)
+            // TODO: This will return the wrong subsite for sites with similar names /sites/subsite vs. /sites/subsite2
             node = SPContext.Current.Content.SelectSingleNode("//Site[starts-with('" + _requestUrl + "', @Url)]");
-
+            
             if (node == null)
                 throw new ArgumentException("No Website found for request Url " + requestUrl);
         }

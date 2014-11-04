@@ -19,7 +19,7 @@ namespace FakePoint.Fakes_Tests
         [TestMethod]
         public void FieldsCountCorrect()
         {
-            Assert.AreEqual(fields.Count, 71);
+            Assert.AreEqual(71, fields.Count);
         }
 
         // TODO: [] int, Guid, string
