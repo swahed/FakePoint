@@ -11,6 +11,9 @@
                   <Web ID="{D5A29DC2-2C8B-4FF6-AC32-5E891D373B1C}" Description="" Name="" Url="http://localhost/sites/teamsite/subsite">
                     <!-- Empty mock test subweb -->
                   </Web>
+                  <Web ID="{0D7AB796-0D1F-4C58-BCD1-A1205F9D85E9}" Description="" Name="" Url="http://localhost/sites/teamsite/subsite2">
+                    <!-- Empty mock test subweb -->
+                  </Web>
                 </Webs>
                 <Files>
                   <Folder Name="">
