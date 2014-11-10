@@ -12,6 +12,9 @@ namespace FakePoint.Fakes_Tests
 
         string testSubWebUrl = "http://localhost/sites/teamsite/subsite";
 
+        string testRootWebTitle = "Teamsite Rootweb";
+        string testSubWebTitle = "Teamsite Subweb";
+
         SPSite Site;
 
         [TestInitialize]
@@ -32,6 +35,15 @@ namespace FakePoint.Fakes_Tests
         {
             SPWeb web = Site.OpenWeb(testSubWebId);
             Assert.AreEqual(testSubWebUrl, web.Url);
+        }
+
+        [TestMethod]
+        public void WebHasCorrectTitle()
+        {
+            SPWeb web = Site.RootWeb;
+            Assert.AreEqual(testRootWebTitle, web.Title);
+            web = Site.OpenWeb(testSubWebId);
+            Assert.AreEqual(testSubWebTitle, web.Title);
         }
 
         [TestMethod]

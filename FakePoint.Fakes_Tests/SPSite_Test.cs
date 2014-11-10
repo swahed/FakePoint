@@ -20,6 +20,8 @@ namespace FakePoint.Fakes_Tests
         string testSiteTitle = "SPSite Url=http://localhost/sites/teamsite";
         string testSiteTitle2 = "SPSite Url=http://localhost/sites/anotherteamsite";
 
+        string testNonexistentWebUrl = "http://localhost/sites/nonexistent";
+
         [TestInitialize]
         public void Init()
         {
@@ -74,6 +76,13 @@ namespace FakePoint.Fakes_Tests
             Assert.AreEqual(testSiteTitle2, site.Title);
             site = new SPSite(testSiteId2);
             Assert.AreEqual(testSiteTitle2, site.Title);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))] // TODO: Type?
+        public void NonExistentSiteThrows()
+        {
+            SPSite site = new SPSite(testNonexistentWebUrl);
         }
 
         // TODO: Correct site needs to be opened if the url of a subweb was entered

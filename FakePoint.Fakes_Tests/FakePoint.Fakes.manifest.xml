@@ -6,12 +6,12 @@
         <WebApplication ID="{B6293B0B-7D16-4169-9BE6-26ED1534BBF9}" DisplayName="WebApplication Name" Name="WebApplication Name">
           <Sites>            
             <Site ID="{BC0D7FEA-75BA-4015-8B88-A7331AF06418}" DisplayName="SPSite Url=http://localhost/sites/teamsite" Name="SPSite Url=http://localhost/sites/teamsite" Url="http://localhost/sites/teamsite">
-              <Web ID="{23A258FF-CEB6-4ABD-9069-0EDD1991D5FD}" Description="" Name="" Url="http://localhost/sites/teamsite">
+              <Web ID="{23A258FF-CEB6-4ABD-9069-0EDD1991D5FD}" Description="" Name="Teamsite Rootweb" Url="http://localhost/sites/teamsite">
                 <Webs>
-                  <Web ID="{D5A29DC2-2C8B-4FF6-AC32-5E891D373B1C}" Description="" Name="" Url="http://localhost/sites/teamsite/subsite">
+                  <Web ID="{D5A29DC2-2C8B-4FF6-AC32-5E891D373B1C}" Description="" Name="Teamsite Subweb" Url="http://localhost/sites/teamsite/subsite">
                     <!-- Empty mock test subweb -->
                   </Web>
-                  <Web ID="{0D7AB796-0D1F-4C58-BCD1-A1205F9D85E9}" Description="" Name="" Url="http://localhost/sites/teamsite/subsite2">
+                  <Web ID="{0D7AB796-0D1F-4C58-BCD1-A1205F9D85E9}" Description="" Name="Teamsite Subweb 2" Url="http://localhost/sites/teamsite/subsite2">
                     <!-- Empty mock test subweb -->
                   </Web>
                 </Webs>
@@ -21289,9 +21289,9 @@
             </Site>
             <Site ID="{819135FE-402E-44BB-A4BA-34E9C8495A53}" DisplayName="SPSite Url=http://localhost/sites/anotherteamsite" Name="SPSite Url=http://localhost/sites/anotherteamsite" Url="http://localhost/sites/anotherteamsite">
               <!-- Empty mock test site -->
-              <Web ID="{B7F2C11F-E26D-49CA-AC58-332FB212C527}" Description="" Name="" Url="http://localhost/sites/anotherteamsite">
+              <Web ID="{B7F2C11F-E26D-49CA-AC58-332FB212C527}" Description="" Name="Teamsite 2 Rootweb" Url="http://localhost/sites/anotherteamsite">
                 <Webs>
-                  <Web ID="{E5CAA219-1C20-4ED2-8096-848FD747DBF9}" Description="" Name="" Url="http://localhost/sites/anotherteamsite/subsite2">
+                  <Web ID="{E5CAA219-1C20-4ED2-8096-848FD747DBF9}" Description="" Name="Teamsite 2 Subweb" Url="http://localhost/sites/anotherteamsite/subsite2">
                     <!-- Empty mock test subweb -->
                   </Web>
                 </Webs>

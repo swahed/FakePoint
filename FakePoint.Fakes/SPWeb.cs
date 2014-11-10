@@ -14,6 +14,7 @@ namespace Microsoft.SharePoint
         public SPListCollection Lists = null;
         public SPFileCollection Files = null;
         public Guid ID { get { return Guid.Parse(((XmlElement)node).GetAttribute("ID")); } }
+        public string Title { get { return ((XmlElement)node).GetAttribute("Name"); } }
         public string Url { get { return ((XmlElement)node).GetAttribute("Url"); } }
         public bool AllowUnsafeUpdates { get; set; }
         public SPFolderCollection Folders
@@ -55,5 +56,6 @@ namespace Microsoft.SharePoint
             if (this == SPContext.Current.Web)
                 throw new Exception("Shouldn't dispose this object - it is managed by the SharePoint framework");
         }
+
     }
 }
